@@ -6,28 +6,7 @@
   <ul *ngFor="let color of sets">
     <li>
       <h4>{{color.name}}</h4>
-        <ul *ngFor="let word of color.words">
-          <li>
-            <h5>{{word.wname}}</h5>
-                <label>
-                  <input type="radio" name="check" (change)="checked = true"> Check me!
-                </label>
-                <label>
-                  <input type="radio" name="check" (change)="checked = false"> Uncheck me!
-                </label>
-                <div *ngIf="checked">
-                  <label>
-                    <input type="checkbox" name="yes" (change)="handleCheckbox(word.answers, $event.target.name)"> YES
-                  </label>
-                  <label>
-                    <input type="checkbox" name="maybe" (change)="handleCheckbox(word.answers, $event.target.name)"> Maybe
-                  </label>
-                  <label>
-                    <input type="checkbox" name="no" (change)="handleCheckbox(word.answers, $event.target.name)"> NO
-                  </label>
-                </div>
-          </li>
-        </ul>
+        <app-word [word]="word" *ngFor="let word of color.words" (answerChecked)="handleCheckbox(word.answers, $event)"></app-word> 
     </li>
   </ul>
 </div>

@@ -1,0 +1,20 @@
+ <div>
+  <h5>{{word.wname}}</h5>
+    <label>
+       <input type="radio" name="check" (change)="checked = true"> Check me!
+    </label>
+     <label>
+      <input type="radio" name="check" value="uncheck" (change)="checked = false; onChecked($event.target.value)"> Uncheck me!
+    </label>
+    <div *ngIf="checked">
+      <label>
+        <input type="checkbox" name="yes" (change)="onChecked($event.target.name)"> YES
+      </label>
+      <label>
+        <input type="checkbox" name="maybe" (change)="onChecked($event.target.name)"> Maybe
+      </label>
+      <label>
+        <input type="checkbox" name="no" (change)="onChecked($event.target.name)"> NO
+      </label>
+  </div>
+</div>

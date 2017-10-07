@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'Output Input Demo!';
-  checked = false;
+  title = 'Output Input!';
   sets = [
       {
           name: "blue",
@@ -42,12 +42,19 @@ export class AppComponent {
   }
 
   handleCheckbox(array, answer){
-    let index = array.indexOf(answer);
-    if (index !== -1 ){
-      array.splice(index, 1)
-    } else {
-      array.push(answer);
+    if (answer === "uncheck") {
+      array = [];
       console.log(this.sets);
+    } else {
+      let index = array.indexOf(answer);
+      if (index !== -1 ){
+        array.splice(index, 1);
+        console.log(this.sets);
+      } else {
+        array.push(answer);
+        console.log(this.sets);
+      }
     }
   }
+
 }
